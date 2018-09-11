@@ -1,0 +1,84 @@
+
+<input type="text" ng-model="search.$" class="search-query" placeholder="Search">
+
+<table>
+
+    <thead>
+    <tr>
+
+        <th>
+            <a href="" ng-click="changeSort('name',reverse, unsorted)">
+                Project
+            </a>
+            <input type="text" ng-model="search.name" class="search-query search-query-column" placeholder="Search by project" style="width:100px">
+        </th>
+
+        <th>
+            <a href="" ng-click="changeSort('description',reverse, unsorted)">
+                Description
+            </a>
+            <input type="text" ng-model="search.description" class="search-query search-query-column" placeholder="Search by desc" style="width:100px">
+        </th>
+
+        <th>
+            <a href="" ng-click="changeSort('author',reverse, unsorted)">
+                Author
+            </a>
+            <input type="text" ng-model="search.author" class="search-query search-query-column" placeholder="Search by author" style="width:100px">
+        </th>
+
+        <th>
+            <a href="" ng-click="changeSort('fileSize',reverse, unsorted)">
+                File Size
+            </a>
+            <input type="text" ng-model="search.fileSize" class="search-query search-query-column" placeholder="Search by size" style="width:100px">
+        </th>
+
+        <th>
+            <a href="" ng-click="changeSort('creationate',reverse, unsorted)">
+                Creation Date
+            </a>
+            <input type="text" ng-model="search.creationDate" class="search-query search-query-column" placeholder="Search by date" style="width:100px">
+        </th>
+
+        <th>
+            <a href="#/new"><i class="icon-plus-sign"></i></a>
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr ng-repeat="project in projects.projects | filter:search | orderBy:sort:reverse">
+
+        <td>
+            <a href="{{project.site}}" target="_blank">{{project.name}}</a>
+        </td>
+
+        <td>
+            {{project.description}}
+        </td>
+
+        <td>
+            {{project.author}}
+        </td>
+
+        <td>
+            {{project.fileSize}}
+        </td>
+
+        <td>
+            {{project.creationDate}}
+        </td>
+
+        <td>
+            <a href="#/edit/{{project.$id}}"><i class="icon-pencil"></i></a
+            <a href="#/delete/{{project.$id}}"><i class="icon-trash"></i></a>
+        </td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+
